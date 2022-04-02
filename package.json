@@ -4,7 +4,7 @@
   "description": "This is a basic streak counter tutorial - to learn typescript - inspired by DuoLingo and meant for the browser (uses `localStorage`).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/nbyodai/typescript-project#readme",
   "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
     "typescript": "^4.6.3"
   }
 }

@@ -8,12 +8,12 @@ export function formattedDate(date: Date): string {
 export function shouldIncrementOrResetStreakCounter(
   currentDate: Date,
   lastLoginDate: string,
-): 'increment' | undefined {
+): 'increment' | 'reset' {
 
   const difference = currentDate.getDate() - parseInt(lastLoginDate.split('/')[1])
   if(difference === 1) {
     return 'increment'
   }
   // otherwise they logged in after a day, which would break the streak
-  return undefined
+  return 'reset'
 }

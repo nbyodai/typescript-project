@@ -69,7 +69,7 @@ describe("streakCounter", () => {
     })
 
     it("should return the streak from localStorage", () => {
-      const date = new Date()
+      const date = new Date('12/12/2021')
       const streak = streakCounter(mockLocalStorage, date)
 
       // should match the dates used to set up the tests
@@ -105,6 +105,20 @@ describe("streakCounter", () => {
       const streak = JSON.parse(streakAsString || '')
 
       expect(streak.currentCount).toBe(2)
+    })
+
+    it("should reset if not consecutive", () => {
+      const date = new Date('12/13/2021')
+      const streak = streakCounter(mockLocalStorage, date)
+
+      expect(streak.currentCount).toBe(2)
+
+      // skip a day and break the streak
+
+      const dateUpdated = new Date('12/15/2021')
+      const streakUpdated = streakCounter(mockLocalStorage, dateUpdated)
+
+      expect(streakUpdated.currentCount).toBe(1)
     })
 
   })

@@ -23,6 +23,8 @@ export function streakCounter(storage: Storage, date: Date): Streak {
           currentCount: streak.currentCount + 1,
           lastLoginDate: formattedDate(date)
         }
+        // store in localStorage
+        storage.setItem(KEY, JSON.stringify(updatedStreak))
 
         return updatedStreak;
       }

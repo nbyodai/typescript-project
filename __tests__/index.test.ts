@@ -137,5 +137,17 @@ describe("streakCounter", () => {
       expect(streak.currentCount).toBe(1)
     })
 
+    it.only("should not reset the streak for the same-day login", () => {
+      const date = new Date('12/13/2021')
+      // Call it once so it updates the streak
+      streakCounter(mockLocalStorage, date)
+
+      // simulate same-day login
+      const dateUpdated = new Date('12/13/2021')
+      const streakUpdated = streakCounter(mockLocalStorage, dateUpdated)
+
+      expect(streakUpdated.currentCount).toBe(2)
+    })
+
   })
 })

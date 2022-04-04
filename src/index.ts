@@ -14,7 +14,6 @@ export function streakCounter(storage: Storage, date: Date): Streak {
     try {
       const streak = JSON.parse(streakInLocalStorage)
       const state = shouldIncrementOrResetStreakCounter(date, streak.lastLoginDate)
-      console.log({ state })
       const SHOULD_INCREMENT = state === 'increment'
       const SHOULD_RESET = state === 'reset'
 

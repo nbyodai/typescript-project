@@ -30,12 +30,15 @@ export function streakCounter(storage: Storage, date: Date): Streak {
         return updatedStreak;
       }
       if (SHOULD_RESET) {
-        const udpatedStreak: Streak = {
+        const updatedStreak: Streak = {
           currentCount: 1,
           startDate: formattedDate(date),
           lastLoginDate: formattedDate(date),
         }
-        return udpatedStreak
+        // store in localStorage
+        storage.setItem(KEY, JSON.stringify(updatedStreak))
+
+        return updatedStreak
       }
 
       return streak
